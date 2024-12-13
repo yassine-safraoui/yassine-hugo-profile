@@ -15,12 +15,12 @@
   </title>
 </head>
 
-<body class="light">
+<body class="light min-vh-100 d-flex flex-column">
   <!-- javascripts -->
   <!-- <script src="/js/jquery-3.6.0.min.js"></script> -->
 
   {{- partial "sections/header.html" . -}}
-  <div id="content">
+  <div id="content" class="flex-grow-1">
     {{- block "main" . }}{{- end }}
   </div>
   {{- partial "sections/footer/index.html" . -}}
