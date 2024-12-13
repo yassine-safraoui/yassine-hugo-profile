@@ -10,11 +10,11 @@
                     {{ .Site.Params.hero.title }}
                 </h2>
                 <h3>
-                    {{ .Site.Params.hero.subtitle }}
+                    {{ .Site.Params.hero.subtitle | markdownify }}
                 </h3>
-                <p class="hero-content">
+                <h5 class="hero-content">
                     {{ .Site.Params.hero.content | markdownify }}
-                </p>
+                </h5>
                 <div class="row">
                     <div class="col-auto h-100">
                         {{ if .Site.Params.hero.button.enable }}
