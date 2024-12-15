@@ -220,13 +220,16 @@ header .navbar.animate {
   position: relative;
   margin-bottom: 10px;
   padding-left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
 }
 
 #about ul li::before {
   content: "•";
   color: var(--primary-color);
-  position: absolute;
-  left: 0px;
+  translate: 0 0.05rem;
+  font-size: 1.5rem;
 }
 
 #about .content {
@@ -350,13 +353,16 @@ header .navbar.animate {
   position: relative;
   margin-bottom: 10px;
   padding-left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
 }
 
 #experience .experience-container .tab-content .tab-pane ul li::before {
-  content: "▹";
+  content: "•";
   color: var(--primary-color);
-  position: absolute;
-  left: 0px;
+  translate: 0 0.05rem;
+  font-size: 1.5rem;
 }
 
 #experience
