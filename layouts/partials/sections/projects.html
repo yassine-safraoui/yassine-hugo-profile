@@ -5,19 +5,22 @@
         <div class="row justify-content-center px-3 px-md-5">
             {{ range .Site.Params.projects.items }}
             <div class="col-lg-4 col-md-6 my-3">
-                <div class="card my-3 h-100" title="{{ .title }}">
+                <div class="card my-3" title="{{ .title }}" style="min-height: 100%;">
                     <div class="card-head">
-                        <img class="card-img-top" src="{{ .image }}" alt="{{ .title }}">
+                        {{ if .image }}
+                            <img class="card-img-top" src="{{ .image }}" alt="{{ .title }}">
+                        {{ end }}
                     </div>
-                    <div class="card-body bg-transparent p-3">
-                        <div class="pb-2 bg-transparent">
+                    <div class="card-body bg-transparent p-3 mb-1">
+                        <div class="pb-2 bg-transparent lh-lg fs-5">
                             {{ range .badges }}
-                            <span class="badge badge-secondary">{{ . }}</span>
+                            {{ $badgeColor := .color | default "badge-secondary" }}
+                            <span class="badge {{$badgeColor}}">{{ .name }}</span>
                             {{ end }}
                         </div>
-                        <h5 class="card-title bg-transparent mt-1">{{ .title }}</h5>
-                        <div class="card-text bg-transparent secondary-font">
-                            {{ .content }}
+                        <h4 class="card-title bg-transparent mt-1 lh-base">{{ .title }}</h4>
+                        <div class="card-text bg-transparent secondary-font lh-base" style="font-size: large;">
+                            {{ replace .content "\n" "<br>" | safeHTML }}
                         </div>
                     </div>
                     {{ if or (.links) (.featured) }}
@@ -44,7 +47,7 @@
             {{ range ( where .Site.RegularPages "Type" "projects" ) }}
             {{ if .Params.showInHome | default true }}
             <div class="col-lg-4 col-md-6 my-3">
-                <div class="card my-3 h-100" title="{{ .Title }}">
+                <div class="card my-3" title="{{ .Title }}">
                     <div class="card-head">
                         <img class="card-img-top" src="{{ .Params.image }}" alt="{{ .Title }}">
                     </div>
