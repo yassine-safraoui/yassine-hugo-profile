@@ -99,3 +99,15 @@
 <script src="{{ .Site.Params.staticPath }}/js/contact.js"></script>
 {{ end }} {{ if (.Site.Params.customScripts | default false) }} {{
 .Site.Params.customScripts | safeHTML }} {{ end }}
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const hash = window.location.hash;
+    if (hash) {
+      const targetElement = document.querySelector(hash);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  });
+</script>
